@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar color="orange">
+
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+
+    <ion-title>Motor's Home</ion-title>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" color="gray-light">
+
+  <ion-list>
+    <ion-list-header color="gray-dark">
+      <h3> Peças Disponíveis </h3>
+    </ion-list-header>
+
+    <ion-item *ngFor="let item of pecasList" [routerLink]="['/detalhes', item.id]">
+      <ion-avatar slot="start">
+        <img [src]="item.imagem">
+      </ion-avatar>
+      <ion-label>
+        <h2> {{item.nome}} </h2>
+        <h3> R$ {{item.preco}}</h3>
+        <p>disponível</p>
+      </ion-label>
+    </ion-item>
+
+  </ion-list>
+
+
+</ion-content>

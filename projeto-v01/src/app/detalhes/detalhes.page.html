@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar color="orange">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+
+    <ion-title class="ion-text-center">Motor's Home</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card>
+    <ion-card-header color="gray-dark">
+      <ion-card-title>{{peca.id}} - {{peca.nome}}</ion-card-title>
+      <ion-card-subtitle>{{peca.status}}</ion-card-subtitle>
+
+      <div class="box-imagem">
+        <img [src]="peca.imagem" class="imagem">
+      </div>
+
+    </ion-card-header>
+
+    <ion-card-content>
+
+
+      <form>
+        <ion-item>
+          <ion-label> <strong>Nome</strong> </ion-label>
+          <ion-input type="text" name="nome" [ngModel]="peca.nome" [disabled]="true">
+          </ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label> <strong>Preço</strong> </ion-label>
+          <ion-input type="number" name="preco" [ngModel]="peca.preco" [disabled]="true">
+          </ion-input>
+        </ion-item>
+
+        <ion-button color="success" expand="block" [routerLink]="['/pecas']">
+          <ion-icon slot="end" name="cart-outline"></ion-icon>
+          Comprar
+        </ion-button>
+
+      </form>
+
+
+    </ion-card-content>
+  </ion-card>
+
+
+</ion-content>
