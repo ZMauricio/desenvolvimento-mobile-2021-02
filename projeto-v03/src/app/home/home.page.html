@@ -1,0 +1,84 @@
+<ion-header>
+  <ion-toolbar color="orange">
+
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+
+
+    <ion-title class="ion-text-center">Motor's Home</ion-title>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div style="padding-left: 10px; padding-top: 20px;">
+    <ion-text style="font-size: x-large; font-weight: bolder;">
+      Categorias
+    </ion-text>
+  </div>
+
+  <ion-slides [options]="categoriaSlides">
+    <ion-slide *ngFor="let obj of categorias">
+      <img [src]="obj.image">
+    </ion-slide>
+  </ion-slides>
+
+  <div style="padding-left: 10px; padding-top: 20px;">
+    <ion-text style="font-size: x-large; font-weight: bolder;">
+      Serviços
+    </ion-text>
+  </div>
+
+  <ion-slides [options]="servicosSlide">
+
+    <ion-slide *ngFor="let obj of servicos">
+      <ion-card>
+        <img [src]="obj.image">
+        <div class="card-title"> {{obj.name}} </div>
+        <div class="card-subtitle"> Saiba mais </div>
+      </ion-card>
+
+    </ion-slide>
+
+  </ion-slides>
+
+
+  <div style="padding-left: 10px; padding-top: 20px;">
+    <ion-text style="font-size: x-large; font-weight: bolder;">
+      Promoções
+    </ion-text>
+  </div>
+
+
+  <ion-slides [options]="promocoesSlide">
+
+    <ion-slide class="featured-slide" *ngFor="let obj of promocoes">
+      <img [src]="obj.image">
+
+      <div class="info">
+
+        <ion-text color="dark">
+          <b> {{obj.name}} </b>
+        </ion-text>
+
+        <span>
+          <ion-icon color="warning" name="star"></ion-icon>
+          <ion-badge color="warning" mode="ios">{{obj.rating}}</ion-badge>
+          <ion-badge color="orange" mode="ios">{{obj.ratings}}</ion-badge>
+        </span>
+
+        <span>
+          <ion-icon name="cash-outline"></ion-icon> {{obj.price}}
+        </span>
+
+      </div>
+
+    </ion-slide>
+
+  </ion-slides>
+
+
+
+</ion-content>
