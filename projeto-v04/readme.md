@@ -1,5 +1,6 @@
-### Projeto versão 02
-* Atualmente o projeto está na fase 02, sendo implementados:
-	* Tela da página home;
-	* Melhorias na tela de pças;
-	* Implementação do service PecasService
+### Projeto versão 04
+* Atualmente o projeto está na fase 04, sendo implementados:
+	* Guardas de rotas;
+	* Login de usuário;
+	* Registro de usuário;
+	* Reactive forms (Formulários reativos);
