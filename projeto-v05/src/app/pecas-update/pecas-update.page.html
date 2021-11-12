@@ -1,0 +1,69 @@
+<ion-header>
+  <ion-toolbar color="orange">
+
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+
+    <ion-title>Motor's Home</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+  <ion-card>
+    <ion-card-header color="gray-dark">
+      <ion-card-title>Update Peça</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+
+      <form>
+        <ion-item>
+          <ion-label position="stack">ID</ion-label>
+          <ion-input type="text" name="codigo" [ngModel]="peca.id" readonly>
+          </ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Nome</ion-label>
+          <ion-input type="text" name="nome" [(ngModel)]="peca.nome">
+          </ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Preço</ion-label>
+          <ion-input type="number" name="preco" [(ngModel)]="peca.preco">
+          </ion-input>
+        </ion-item>
+
+
+        <ion-item>
+          <ion-label position="stacked">Descrição</ion-label>
+          <ion-textarea name="descricao" [(ngModel)]="peca.descricao">
+          </ion-textarea>
+        </ion-item>
+
+        <ion-row>
+          <ion-col size="6">
+            <ion-button [routerLink]="['/detalhes', peca.id]" expand="block" color="warning">
+              Cancelar
+            </ion-button>
+          </ion-col>
+
+          <ion-col size="6">
+            <ion-button (click)="atualizar()" expand="block" color="success">
+              Salvar
+            </ion-button>
+          </ion-col>
+        </ion-row>
+
+      </form>
+
+    </ion-card-content>
+  </ion-card>
+
+
+
+</ion-content>

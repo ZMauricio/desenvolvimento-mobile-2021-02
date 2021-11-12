@@ -1,0 +1,187 @@
+<ion-header>
+  <ion-toolbar color="orange">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+
+    <ion-title class="ion-text-center">Motor's Home</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div class="header-image" [style.background-image]="'url('+peca?.imagem+')'">
+  </div>
+
+  <ion-header class="ion-no-border ion-padding-start">
+    <ion-toolbar style="background: #ffffff;">
+
+      <ion-text size="large" style="font-weight: bolder; font-size: x-large;">
+        {{peca.nome}}
+      </ion-text>
+
+      <ion-text class="ion-padding-end" color="orange"
+      style="font-weight: bolder; font-size: x-large; float: right;">
+        <ion-icon name="cash-outline"></ion-icon> {{peca.preco}}
+      </ion-text>
+
+    </ion-toolbar>
+  </ion-header>
+
+
+  <ion-row class="ion-padding-start" style="background: #ffffff;">
+    <ion-col size="12">
+      <ion-icon name="star" color="warning"></ion-icon>
+      <ion-badge color="warning" mode="ios">{{avaliacao}}</ion-badge>
+      <ion-badge color="orange" mode="ios">{{numeroAvaliacoes}}</ion-badge>
+      <ion-text color="medium">
+        {{itensRestantes}} itens restantes
+      </ion-text>
+    </ion-col>
+
+    <ion-col size="12">
+      <ion-row class="ion-align-items-center">
+
+        <ion-col size="1">
+          <ion-icon class="ion-align-self-start" color="orange" size="large" name="list-circle-outline">
+            Categoria
+          </ion-icon>
+        </ion-col>
+
+        <ion-col size="11" class="ion-padding-start">
+          <ion-label>Nome Categoria
+            <p>
+              Sub-categoria
+            </p>
+          </ion-label>
+
+        </ion-col>
+
+      </ion-row>
+    </ion-col>
+  </ion-row>
+
+
+  <ion-row style="background: #f3f0f0fd;">
+    <ion-col size="12" class="ion-padding-start">
+      <h4> <strong>Descrição</strong> </h4>
+      {{peca.descricao}}
+    </ion-col>
+  </ion-row>
+
+
+  <ion-row class="ion-align-items-center ion-padding">
+    <ion-col size="2">
+      <ion-button (click)="aumentar()" color="success" size="small">
+        <ion-icon slot="icon-only" name="add"></ion-icon>
+      </ion-button>
+    </ion-col>
+
+
+    <ion-col size="2" class="ion-text-center ion-align-self-center">
+      <ion-text color="dark" style="font-weight: bold; font-size: x-large;">
+        {{quantidade}}
+      </ion-text>
+    </ion-col>
+
+
+    <ion-col size="2">
+      <ion-button (click)="diminuir()" color="danger" size="small">
+        <ion-icon slot="icon-only" name="remove"></ion-icon>
+      </ion-button>
+    </ion-col>
+
+    <ion-col size="6" class="ion-text-end">
+      <ion-text color="dark" style="font-size: x-large; font-weight: bolder;">
+        Total: {{total}}
+      </ion-text>
+    </ion-col>
+
+  </ion-row>
+
+
+  <ion-row>
+    <ion-col size="12">
+      <ion-button (click)="addCarrinho()" color="orange" expand="block" size="large" shape="round" strong="true">
+        <ion-icon slot="end" name="cart"></ion-icon>
+        Adicionar
+      </ion-button>
+    </ion-col>
+  </ion-row>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!--
+  <ion-card>
+    <ion-card-header color="gray-dark">
+
+      <ion-row>
+        <ion-col size="10">
+          <ion-card-title>{{peca.id}} - {{peca.nome}}</ion-card-title>
+        </ion-col>
+
+        <ion-col size="2">
+
+          <ion-button (click)="deletar()" color="gray-dark">
+            <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
+          </ion-button>
+
+        </ion-col>
+      </ion-row>
+
+      <ion-card-subtitle>{{peca.status}}</ion-card-subtitle>
+
+
+
+
+      <div class="box-imagem">
+        <img [src]="peca.imagem" class="imagem">
+      </div>
+
+    </ion-card-header>
+
+    <ion-card-content>
+
+
+      <form>
+        <ion-item>
+          <ion-label> <strong>Nome</strong> </ion-label>
+          <ion-input type="text" name="nome" [ngModel]="peca.nome" [disabled]="true">
+          </ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label> <strong>Preço</strong> </ion-label>
+          <ion-input type="number" name="preco" [ngModel]="peca.preco" [disabled]="true">
+          </ion-input>
+        </ion-item>
+
+        <ion-button color="success" expand="block" [routerLink]="['/pecas']">
+          <ion-icon slot="end" name="cart-outline"></ion-icon>
+          Comprar
+        </ion-button>
+
+        <ion-button color="warning" expand="block"
+        [routerLink]="['/pecas-update', peca.id]">
+          <ion-icon slot="end" name="create-outline"></ion-icon>
+          Editar
+        </ion-button>
+
+      </form>
+
+
+    </ion-card-content>
+  </ion-card>
+-->
+
+</ion-content>

@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar color="orange">
+
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+
+    <ion-title>Motor's Home</ion-title>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+<ion-row>
+
+  <ion-col size="6" *ngFor="let obj of pecasList">
+    <ion-card>
+      <ion-card-header>
+        <ion-img [src]="obj.imagem"></ion-img>
+      </ion-card-header>
+
+      <ion-card-content>
+        <ion-text color="orange" style="font-weight: bolder;">
+          {{obj.nome}}
+        </ion-text>
+        <ion-icon color="warning" slot="start" name="star"></ion-icon>
+        <ion-text color="warning">4.5</ion-text>
+        <br>
+        <ion-text color="dark" style="font-weight: bolder; font-size: large;">
+          R$ {{obj.preco}}
+        </ion-text>
+
+        <ion-button color="orange" expand="block" [routerLink]="['/detalhes', obj.id]">
+          Comprar
+        </ion-button>
+
+      </ion-card-content>
+    </ion-card>
+  </ion-col>
+
+</ion-row>
+
+
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="success" [routerLink]="['/pecas-add']">
+      <ion-icon name="add-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+</ion-content>

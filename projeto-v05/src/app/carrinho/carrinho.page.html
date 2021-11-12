@@ -1,0 +1,161 @@
+<ion-header>
+  <ion-toolbar color="orange">
+
+    <ion-title class="ion-text-center" style="font-size: x-large; font-weight: bold;">
+      Carrinho de compras
+    </ion-title>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+<div style="padding: 20px; background: #f5f5ef;">
+  <ion-text color="orange" style="font-size: x-large; font-weight: bolder;">
+    Conclua a sua compra
+  </ion-text>
+</div>
+
+<!--
+<ion-row class="ion-padding" *ngFor="let produto of itens">
+-->
+<ion-row class="ion-padding">
+
+  <ion-col size="4">
+    <!--
+    <img [src]="produto.imagem">
+    -->
+    <img src="./../../assets/img/car-parts/battery.jpg">
+  </ion-col>
+
+  <ion-col size="8">
+
+    <ion-text color="orange" class="ion-text-start"
+    style="font-size: large; font-weight: bolder;">
+      <!--
+      {{produto.nome}}
+      -->
+      Bateria Volt
+    </ion-text>
+    <br>
+    <span>
+      <ion-icon color="warning" name="star"></ion-icon>
+      <ion-badge color="warning" mode="ios"> 4.5 Excelente </ion-badge>
+      <br>
+      <ion-text color="medium">
+        Categoria do produto
+      </ion-text>
+    </span>
+    <br>
+
+    <ion-row class="ion-align-items-center">
+
+      <ion-col size="10">
+        <ion-text color="dark" style="font-size: 22px; font-weight: bolder;">
+          <!--
+          {{produto.preco}}
+          -->
+          R$ 140,00
+        </ion-text>
+      </ion-col>
+
+    </ion-row>
+
+    <ion-row class="ion-align-items-center">
+      <ion-col size="2">
+        <ion-button color="success" size="small">
+          <ion-icon slot="icon-only" name="add"></ion-icon>
+        </ion-button>
+      </ion-col>
+
+      <ion-col size="3" class="ion-text-center" style="margin-left: 20px;">
+        <ion-text color="dark" style="font-size: x-large; font-weight: bold;">
+          10
+        </ion-text>
+      </ion-col>
+
+      <ion-col size="2">
+        <ion-button color="danger" size="small">
+          <ion-icon slot="icon-only" name="remove"></ion-icon>
+        </ion-button>
+      </ion-col>
+
+      <ion-col offset="1">
+      </ion-col>
+
+      <ion-col size="2" class="ion-align-self-end">
+        <ion-button color="medium" size="small" fill="clear">
+          <ion-icon slot="icon-only" name="trash"></ion-icon>
+        </ion-button>
+      </ion-col>
+
+    </ion-row>
+
+
+
+
+
+
+  </ion-col>
+
+</ion-row>
+
+
+
+<div style="padding: 20px; background: #f5f5ef;">
+
+  <ion-text color="orange" style="font-size: x-large; font-weight: bolder;">
+    Resumo da compra
+  </ion-text>
+
+  <div style="padding-top: 10px;">
+    <ion-text style="font-size: large; font-weight: bolder;">
+      Total:
+    </ion-text>
+
+    <ion-text class="ion-padding-end" style="font-size: large; font-weight: bolder; float: right;">
+      R$ 1000,00
+    </ion-text>
+  </div>
+
+  <div style="padding-top: 10px;">
+    <ion-text style="font-size: large; font-weight: bolder;">
+      Frete:
+    </ion-text>
+
+    <ion-text class="ion-padding-end" style="font-size: large; font-weight: bolder; float: right;">
+      R$ 15,00
+    </ion-text>
+  </div>
+
+  <div style="padding-top: 10px;">
+    <ion-text style="font-size: large; font-weight: bolder;">
+      Total a pagar:
+    </ion-text>
+
+    <ion-text class="ion-padding-end" style="font-size: large; font-weight: bolder; float: right;">
+      R$ 1015,00
+    </ion-text>
+  </div>
+
+</div>
+
+
+
+<ion-row>
+  <ion-col size="12">
+    <ion-button expand="block" shape="round" color="orange" strong="true">
+      <ion-icon slot="end" name="card"></ion-icon>
+      Comprar
+    </ion-button>
+  </ion-col>
+
+  <ion-col size="12">
+    <ion-button expand="block" shape="round" color="medium" strong="true">
+      <ion-icon slot="end" name="cart"></ion-icon>
+      Adicionar mais
+    </ion-button>
+  </ion-col>
+</ion-row>
+
+</ion-content>
