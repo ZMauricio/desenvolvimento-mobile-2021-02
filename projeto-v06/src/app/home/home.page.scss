@@ -1,0 +1,43 @@
+ion-slides {
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+
+.featured-slide {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  .info {
+   display: flex;
+   flex-direction: column;
+   align-items: flex-start;
+  }
+}
+
+
+
+ion-card {
+  position: relative;
+  text-align: center;
+}
+
+.card-title {
+  width: 100%;
+  font-weight: bold;
+  color: #FFF;
+  font-size: 3.0em;
+  top: 36%;
+  position: absolute;
+}
+
+.card-subtitle {
+  color: #FFF;
+  width: 100%;
+  font-size: 1.5em;
+  top: 69%;
+  position: absolute;
+}

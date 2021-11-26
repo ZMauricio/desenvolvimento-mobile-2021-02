@@ -1,0 +1,175 @@
+<ion-header>
+  <ion-toolbar color="orange">
+
+    <ion-title class="ion-text-center" style="font-size: x-large; font-weight: bold;">
+      Carrinho de compras
+    </ion-title>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+<div *ngIf="(itens().length > 0); else blocoElse">
+
+
+  <div style="padding: 20px; background: #f5f5ef;">
+    <ion-text color="orange" style="font-size: x-large; font-weight: bolder;">
+      Conclua a sua compra
+    </ion-text>
+  </div>
+
+
+  <ion-row class="ion-padding" *ngFor="let produto of itens()">
+
+    <ion-col size="4">
+
+      <img [src]="produto.item.imagem">
+      <!--
+      <img src="./../../assets/img/car-parts/battery.jpg">
+      -->
+    </ion-col>
+
+    <ion-col size="8">
+
+      <ion-text color="orange" class="ion-text-start"
+      style="font-size: large; font-weight: bolder;">
+
+        {{produto.item.nome}}
+
+      </ion-text>
+      <br>
+      <span>
+        <ion-icon color="warning" name="star"></ion-icon>
+        <ion-badge color="warning" mode="ios"> 4.5 Excelente </ion-badge>
+        <br>
+        <ion-text color="medium">
+          Categoria do produto
+        </ion-text>
+      </span>
+      <br>
+
+      <ion-row class="ion-align-items-center">
+
+        <ion-col size="10">
+          <ion-text color="dark" style="font-size: 22px; font-weight: bolder;">
+
+            {{ produto.item.preco | currency: 'BRL'}}
+
+          </ion-text>
+        </ion-col>
+
+      </ion-row>
+
+      <ion-row class="ion-align-items-center">
+        <ion-col size="2">
+          <ion-button (click)="aumentar(produto)" color="success" size="small">
+            <ion-icon slot="icon-only" name="add"></ion-icon>
+          </ion-button>
+        </ion-col>
+
+        <ion-col size="3" class="ion-text-center" style="margin-left: 20px;">
+          <ion-text color="dark" style="font-size: x-large; font-weight: bold;">
+            {{produto.quantidade}}
+          </ion-text>
+        </ion-col>
+
+        <ion-col size="2">
+          <ion-button (click)="diminuir(produto)" color="danger" size="small">
+            <ion-icon slot="icon-only" name="remove"></ion-icon>
+          </ion-button>
+        </ion-col>
+
+        <ion-col offset="1">
+        </ion-col>
+
+        <ion-col size="2" class="ion-align-self-end">
+          <ion-button (click)="remover(produto)" color="medium" size="small" fill="clear">
+            <ion-icon slot="icon-only" name="trash"></ion-icon>
+          </ion-button>
+        </ion-col>
+
+      </ion-row>
+
+
+
+
+    </ion-col>
+
+  </ion-row>
+
+
+
+  <div style="padding: 20px; background: #f5f5ef;">
+
+    <ion-text color="orange" style="font-size: x-large; font-weight: bolder;">
+      Resumo da compra
+    </ion-text>
+
+    <div style="padding-top: 10px;">
+      <ion-text style="font-size: large; font-weight: bolder;">
+        Total:
+      </ion-text>
+
+      <ion-text class="ion-padding-end" style="font-size: large; font-weight: bolder; float: right;">
+        {{ total() | currency: 'BRL' }}
+      </ion-text>
+    </div>
+
+    <div style="padding-top: 10px;">
+      <ion-text style="font-size: large; font-weight: bolder;">
+        Frete:
+      </ion-text>
+
+      <ion-text class="ion-padding-end" style="font-size: large; font-weight: bolder; float: right;">
+        {{ frete | currency: 'BRL'}}
+      </ion-text>
+    </div>
+
+    <div style="padding-top: 10px;">
+      <ion-text style="font-size: large; font-weight: bolder;">
+        Total a pagar:
+      </ion-text>
+
+      <ion-text class="ion-padding-end" style="font-size: large; font-weight: bolder; float: right;">
+        {{ total() + frete | currency: 'BRL' }}
+      </ion-text>
+    </div>
+
+  </div>
+
+
+
+  <ion-row>
+    <ion-col size="12">
+      <ion-button expand="block" shape="round" color="orange" strong="true">
+        <ion-icon slot="end" name="card"></ion-icon>
+        Comprar
+      </ion-button>
+    </ion-col>
+
+    <ion-col size="12">
+      <ion-button [routerLink]="['/pecas']" expand="block" shape="round" color="medium" strong="true">
+        <ion-icon slot="end" name="cart"></ion-icon>
+        Adicionar mais
+      </ion-button>
+    </ion-col>
+  </ion-row>
+
+
+</div>
+
+<ng-template #blocoElse>
+  <ion-row>
+
+    <ion-col size="12">
+      <ion-button [routerLink]="['/pecas']" expand="block" shape="round" color="medium" strong="true">
+        <ion-icon slot="end" name="cart"></ion-icon>
+        Buscar por produtos
+      </ion-button>
+    </ion-col>
+  </ion-row>
+
+</ng-template>
+
+</ion-content>

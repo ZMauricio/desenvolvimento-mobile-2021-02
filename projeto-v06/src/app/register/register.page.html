@@ -1,0 +1,153 @@
+
+<ion-content color="orange">
+
+
+  <div style="margin-top: 20%;">
+
+    <div style="text-align: center;">
+      <h1 style="color: black; font-weight: bolder;"> Motor's Home </h1>
+      <img src="./../../assets/img/black-car-logo.png" width="50%">
+    </div>
+
+
+    <form #form="ngForm" [formGroup]="usuarioForm" (submit)="registrar()">
+
+      <ion-card color="gray-dark">
+        <ion-card-header>
+
+          <ion-card-title style="font-size: x-large; text-align: center;"> Registrar </ion-card-title>
+
+        </ion-card-header>
+
+        <ion-card-content>
+
+          <ion-item style="margin-bottom: 7px; border-radius: 10px;">
+            <ion-label position="floating">Nome</ion-label>
+
+            <ion-input type="text" placeholder="Informe o nome" name="nome" formControlName="nome">
+            </ion-input>
+
+            <small class="error-message" *ngIf="(usuarioForm.get('nome')?.errors?.required || usuarioForm.get('nome')?.errors?.minlength ||
+            usuarioForm.get('nome')?.errors?.maxlength) &&
+            (usuarioForm.get('nome')?.touched || form.submitted)">
+              Informe o nome do usuário (6 a 150 caracteres)
+            </small>
+
+          </ion-item>
+
+          <ion-item style="margin-bottom: 7px; border-radius: 10px;">
+            <ion-label position="floating">E-mail</ion-label>
+
+            <ion-input type="email" placeholder="Informe o seu e-mail" name="email" formControlName="email">
+            </ion-input>
+
+            <small class="error-message" *ngIf="(usuarioForm.get('email')?.errors?.required || usuarioForm.get('email')?.errors?.email) &&
+             (usuarioForm.get('email')?.touched || form.submitted)">
+              Informe o e-mail corretamente
+            </small>
+
+          </ion-item>
+
+          <ion-item style="margin-bottom: 7px; border-radius: 10px;">
+            <ion-label position="floating">Senha</ion-label>
+            <ion-input type="password" placeholder="Informe a sua senha" name="senha" formControlName="senha">
+            </ion-input>
+
+            <small class="error-message" *ngIf="(usuarioForm.get('senha')?.errors?.required || usuarioForm.get('senha')?.errors?.minlength) &&
+            (usuarioForm.get('senha')?.touched || form.submitted)">
+              Informe uma senha com pelo menos 6 caracteres
+            </small>
+          </ion-item>
+
+          <ion-item style="margin-bottom: 7px; border-radius: 10px;">
+            <ion-label position="floating">Idade</ion-label>
+            <ion-input type="number" placeholder="Informe a sua idade" formControlName="idade"></ion-input>
+
+            <small class="error-message"
+            *ngIf="(usuarioForm.get('idade')?.errors?.required || usuarioForm.get('idade')?.errors?.min) &&
+            (usuarioForm.get('cidade')?.touched || form.submitted)">
+              Informe a idade corretamente
+            </small>
+
+          </ion-item>
+
+          <ion-item style="margin-bottom: 7px; border-radius: 10px;">
+            <ion-label position="floating">Cidade</ion-label>
+            <ion-input type="text" placeholder="Informe a sua cidade" formControlName="cidade"></ion-input>
+
+            <small class="error-message" *ngIf="usuarioForm.get('cidade')?.errors?.required && (usuarioForm.get('cidade')?.touched || form.submitted)">
+              Informe a cidade
+            </small>
+
+          </ion-item>
+
+
+          <ion-list>
+            <ion-radio-group name="genero" formControlName="genero">
+              <ion-list-header>
+                <ion-label>Gênero</ion-label>
+              </ion-list-header>
+
+              <ion-item>
+                <ion-label>Masculino</ion-label>
+                <ion-radio value="m"></ion-radio>
+              </ion-item>
+
+              <ion-item>
+                <ion-label>Feminino</ion-label>
+                <ion-radio value="f"></ion-radio>
+              </ion-item>
+
+              <small class="error-message" *ngIf="usuarioForm.get('genero')?.errors?.required ||
+              form.submitted">
+                Informe o gênero.
+              </small>
+
+            </ion-radio-group>
+          </ion-list>
+
+
+
+          <ion-list>
+            <ion-list-header>
+              <ion-label>Promoções</ion-label>
+            </ion-list-header>
+
+            <ion-item *ngFor="let obj of promocoes; let i=index">
+              <ion-label>{{obj.nome}}</ion-label>
+
+              <ion-checkbox [value]="obj.value" [checked]="obj.checked"
+              (ionChange)="onSelectionChange($event, i)">
+              </ion-checkbox>
+
+            </ion-item>
+
+          </ion-list>
+
+
+          <ion-button [disabled]="!form.valid" type="submit" expand="block" color="green">
+            Registrar
+          </ion-button>
+
+          <ion-button expand="block" color="warning" [routerLink]="['/login']">
+            Voltar
+          </ion-button>
+
+
+        </ion-card-content>
+
+      </ion-card>
+
+
+
+
+    </form>
+
+
+
+
+  </div>
+
+
+
+</ion-content>
