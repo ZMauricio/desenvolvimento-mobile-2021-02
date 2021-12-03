@@ -1,0 +1,66 @@
+<ion-header>
+  <ion-toolbar color="orange">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      <h1 style="color: black; font-weight: bolder;"> Motor's Home </h1>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="orange">
+
+  <div style="margin-top: 20%;">
+
+    <div style="text-align: center;">
+
+      <img src="./../../assets/img/black-car-logo.png" width="30%">
+    </div>
+
+
+    <form>
+
+      <ion-card color="gray-dark">
+        <ion-card-header>
+
+          <ion-card-title style="font-size: x-large; text-align: center;"> Dados da Conta </ion-card-title>
+
+        </ion-card-header>
+
+        <ion-card-content>
+          <div style="margin-bottom: 7px; border-radius: 25px;" *ngIf="(usuario.url)">
+            <ion-img style="width: 150px; display:block; margin:auto;" [src]="usuario.url"></ion-img>
+          </div>
+
+          <ion-item style="margin-bottom: 7px; border-radius: 10px;">
+            <ion-label position="floating">Nome</ion-label>
+
+            <ion-input type="text" placeholder="Informe o nome" name="nome" [(ngModel)]="usuario.nome">
+            </ion-input>
+
+          </ion-item>
+
+          <ion-item style="margin-bottom: 7px; border-radius: 10px;">
+            <ion-label position="floating">E-mail</ion-label>
+
+            <ion-input type="email" placeholder="Informe o seu e-mail" name="email" [(ngModel)]="usuario.email">
+            </ion-input>
+
+          </ion-item>
+
+        </ion-card-content>
+
+      </ion-card>
+
+
+
+
+    </form>
+
+
+
+
+  </div>
+
+</ion-content>
